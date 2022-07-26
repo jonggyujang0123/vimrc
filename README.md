@@ -5,8 +5,18 @@ mv vimrc/.vimrc .vimrc
 rm -r -f vimrc
 ```
 
+
 # vimrc
 vimrc configuration
+
+- For ubuntu:
+```
+sudo apt install cmake
+```
+- For MacOs
+```
+brew install cmake
+```
 
 ## vim-plug 
 
