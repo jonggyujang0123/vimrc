@@ -8,6 +8,7 @@ rm -r -f vimrc
 
 # vimrc
 vimrc configuration
+`important !` deactivate conda
 
 - For ubuntu:
 ```
@@ -16,6 +17,11 @@ sudo apt install cmake
 - For MacOs
 ```
 brew install cmake
+```
+
+- Common:
+```
+python -m pip install ipdb
 ```
 
 ## vim-plug 
@@ -31,7 +37,6 @@ In vim normal mode, run
 
 
 ## YouCompleteMe
-`important !` deactivate conda
 
 Then, install it.
 ```
@@ -42,7 +47,6 @@ python3 ~/.vim/plugged/YouCompleteMe/install.py --clang-completer
 
 1. Install ipdb module
 ```
-python -m pip install ipdb
 ```
 
 ## Finish Installation
@@ -51,6 +55,7 @@ In vim normal mode, run
 :PlugInstall
 ```
 # For Mac OS
+If following error occurs `YouCompleteMe unavailable: requires Vim compiled with Python (3.6.0+) support`
 ``` 
 brew install macvim
 ```
