@@ -35,20 +35,6 @@ In vim normal mode, run
 :PlugInstall
 ```
 
-
-## YouCompleteMe
-
-Then, install it.
-```
-python3 ~/.vim/plugged/YouCompleteMe/install.py --clang-completer
-```
-
-## For vim-repl
-
-1. Install ipdb module
-```
-```
-
 ## Finish Installation
 In vim normal mode, run
 ```
