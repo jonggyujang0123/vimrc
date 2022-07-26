@@ -40,3 +40,7 @@ In vim normal mode, run
 ```
 :PlugInstall
 ```
+# For Mac OS
+``` 
+brew install macvim
+```
