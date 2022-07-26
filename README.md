@@ -14,6 +14,12 @@ vimrc configuration
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
+In vim normal mode, run
+```
+:PlugInstall
+```
+
+
 ## YouCompleteMe
 `important !` deactivate conda
 
