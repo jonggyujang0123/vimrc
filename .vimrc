@@ -535,6 +535,8 @@ map <F3> :NERDTreeToggle<cr>
 
 "YouCompleteMe
 Plug 'Valloric/YouCompleteMe'
+highlight Pmenu ctermfg=190 ctermbg=17 guifg=#AACCFF guibg=#222233
+highlight PmenuSel ctermfg=17 ctermbg=190 guifg=#AACCFF guibg=#222233
 
 "Autocomplete
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
