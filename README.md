@@ -1,7 +1,8 @@
 # Clone Repo
 ```
 git clone https://github.com/jonggyujang0123/vimrc.git
-mv vimrc/.vimrc .vimrc
+mv vimrc/.vimrc .vimrc # if Ubuntu
+mv vimrc/.vimrc_mac .vimrc # if macOS
 rm -r -f vimrc
 ```
 
