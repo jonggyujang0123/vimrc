@@ -1,3 +1,10 @@
+# Clone Repo
+```
+git clone https://github.com/jonggyujang0123/vimrc.git
+mv vimrc/.vimrc .vimrc
+rm -r -f vimrc
+```
+
 # vimrc
 vimrc configuration
 
@@ -9,8 +16,10 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 ## YouCompleteMe
 `important !` deactivate conda
-1. 
+
+Then, install it.
 ```
+python3 ~/.vim/plugged/YouCompleteMe/install.py --clang-completer
 ```
 
 ## For vim-repl
