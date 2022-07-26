@@ -533,10 +533,13 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 map <F3> :NERDTreeToggle<cr>
 
+"YouCompleteMe
+Plug 'Valloric/YouCompleteMe'
+
 "Autocomplete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:python3_host_prog = '~/anaconda3/bin/python3'
-let g:coc_global_extensions = ['coc-python', 'coc-explorer', 'coc-json', 'coc-tsserver', 'coc-import-cost', 'coc-eslint', 'coc-snippets', 'coc-html', 'coc-css', 'coc-emmet', 'coc-pyright', 'coc-phpls', 'coc-angular', 'coc-git']
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"let g:python3_host_prog = '~/anaconda3/bin/python3'
+"let g:coc_global_extensions = ['coc-python', 'coc-explorer', 'coc-json', 'coc-tsserver', 'coc-import-cost', 'coc-eslint', 'coc-snippets', 'coc-html', 'coc-css', 'coc-emmet', 'coc-pyright', 'coc-phpls', 'coc-angular', 'coc-git']
 
 " Initialize plugin system
 call plug#end()
