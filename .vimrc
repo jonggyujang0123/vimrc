@@ -534,7 +534,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 map <F3> :NERDTreeToggle<cr>
 
 "YouCompleteMe
-Plug 'Valloric/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
 highlight Pmenu ctermfg=190 ctermbg=17 guifg=#AACCFF guibg=#222233
 highlight PmenuSel ctermfg=17 ctermbg=190 guifg=#AACCFF guibg=#222233
 
