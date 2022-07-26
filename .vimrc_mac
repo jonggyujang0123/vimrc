@@ -62,3 +62,91 @@ set viminfo^=%
 filetype plugin indent on
 syntax on
 
+" restore the cursor position
+
+function! ResCur()
+
+  if line("'\"") <= line("$")
+
+    normal! g`"
+
+    return 1
+
+  endif
+
+endfunction
+
+
+
+augroup resCur
+
+  autocmd!
+
+  autocmd BufWinEnter * call ResCur()
+
+augroup END
+
+
+func! CmtOn()    "주석 on
+
+    exe "'<,'>norm i#"
+
+endfunc
+
+vmap <c-c> <esc>:call CmtOn() <cr>
+
+nmap <c-c> <esc>v:call CmtOn() <cr>
+
+map f w
+
+
+
+
+
+"""""""""""""""""""""""""""""""'''
+""""           VIM PLUGIN        
+""""""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+
+" Any valid git URL is allowed
+"NERD-Tree
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+map <F3> :NERDTreeToggle<cr>
+
+" Initialize plugin system
+"
+"
+Plug 'sillybun/vim-repl'
+
+let g:repl_program = {
+            \   'python': 'ipython',
+            \   'python-debug': 'ipdb3',
+            \   'vim': 'vim -e',
+            \   }
+let g:repl_predefine_python = {
+            \   'numpy': 'import numpy as np',
+            \   }
+let g:repl_cursor_down = 1
+let g:repl_python_automerge = 1
+let g:repl_ipython_version = '7'
+let g:repl_output_copy_to_register = "t"
+nnoremap <leader>r :REPLToggle<Cr>
+nnoremap <leader>e :REPLSendSession<Cr>
+autocmd Filetype python nnoremap <F12> <Esc>:REPLDebugStopAtCurrentLine<Cr>
+autocmd Filetype python nnoremap <F9> <Esc>:REPLPDBN<Cr>
+autocmd Filetype python nnoremap <F10> <Esc>:REPLPDBS<Cr>
+let g:repl_position = 3
+
+"YouCompleteMe
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
+highlight Pmenu ctermfg=190 ctermbg=17 guifg=#AACCFF guibg=#222233
+highlight PmenuSel ctermfg=17 ctermbg=190 guifg=#AACCFF guibg=#222233
+
+
+call plug#end()
+
+
