@@ -14,10 +14,12 @@ vimrc configuration
 - For ubuntu:
 ```
 sudo apt install cmake
+curl -sL install-node.now.sh/lts | sudo bash
 ```
 - For MacOs
 ```
 brew install cmake
+curl -sL install-node.now.sh/lts | sudo bash
 ```
 
 - Common:
