@@ -36,7 +36,6 @@ set novisualbell
 set t_vb=
 set tm=500
 
-
 " Enable syntax highlighting
 syntax enable 
 
@@ -58,9 +57,6 @@ autocmd BufReadPost *
      \ endif
 " Remember info about open buffers on close
 set viminfo^=%
-
-filetype plugin indent on
-syntax on
 
 " restore the cursor position
 
@@ -89,7 +85,7 @@ augroup END
 
 func! CmtOn()    "주석 on
 
-    exe "'<,'>norm i#"
+	exe "'<,'>norm i#"
 
 endfunc
 
@@ -98,6 +94,7 @@ vmap <c-c> <esc>:call CmtOn() <cr>
 nmap <c-c> <esc>v:call CmtOn() <cr>
 
 map f w
+
 
 
 
@@ -113,7 +110,7 @@ Plug 'junegunn/vim-easy-align'
 
 " Any valid git URL is allowed
 "NERD-Tree
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree' 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 map <F3> :NERDTreeToggle<cr>
 
@@ -124,8 +121,8 @@ Plug 'sillybun/vim-repl'
 
 let g:repl_program = {
             \   'python': 'ipython',
-            \   'python-debug': 'ipdb3',
-            \   'vim': 'vim -e',
+			\   'python-debug': 'ipdb3',
+			\   'vim': 'vim -e',
             \   }
 let g:repl_predefine_python = {
             \   'numpy': 'import numpy as np',
@@ -142,10 +139,16 @@ autocmd Filetype python nnoremap <F10> <Esc>:REPLPDBS<Cr>
 let g:repl_position = 3
 
 "YouCompleteMe
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
+"Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
+"highlight Pmenu ctermfg=190 ctermbg=17 guifg=#AACCFF guibg=#222233
+"highlight PmenuSel ctermfg=17 ctermbg=190 guifg=#AACCFF guibg=#222233
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:python3_host_prog = '~/anaconda3/bin/python3'
+let g:coc_global_extensions = ['coc-python', 'coc-explorer', 'coc-json', 'coc-tsserver', 'coc-import-cost', 'coc-eslint', 'coc-snippets', 'coc-html', 'coc-css', 'coc-emmet', 'coc-pyright', 'coc-phpls', 'coc-angular', 'coc-git']
 highlight Pmenu ctermfg=190 ctermbg=17 guifg=#AACCFF guibg=#222233
 highlight PmenuSel ctermfg=17 ctermbg=190 guifg=#AACCFF guibg=#222233
-
+highlight CocUnusedHighlight ctermbg=NONE guibg=NONE
 
 call plug#end()
 
