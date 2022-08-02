@@ -1,4 +1,13 @@
-# Clone Repo
+#vimrc for MacOS and Ubuntu
+## Features
+- Basic features such as line number, tapstop, autoindent, ...
+- Key Plugins 
+  - [Nerd Tree (view directory tree in vim editor, Press `F3`
+  - [You Complete Me (YCM) or Coc.Nvim (Auto completer)
+  - [IndentLine](a)[b]
+  - [python-repl]
+
+## Clone Repo
 ```
 git clone https://github.com/jonggyujang0123/vimrc.git
 mv vimrc/.vimrc .vimrc # if Ubuntu
