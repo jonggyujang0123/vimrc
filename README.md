@@ -6,6 +6,11 @@ mv vimrc/.vimrc_mac .vimrc # if macOS
 rm -r -f vimrc
 ```
 
+## vim-plug 
+
+```
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
 
 # vimrc
 vimrc configuration
@@ -27,11 +32,6 @@ curl -sL install-node.now.sh/lts | sudo bash
 python -m pip install ipdb
 ```
 
-## vim-plug 
-
-```
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
 
 In vim normal mode, run
 ```
