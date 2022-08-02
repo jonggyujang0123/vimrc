@@ -2,10 +2,12 @@
 ## Features
 - Basic features such as line number, tapstop, autoindent, ...
 - Key Plugins 
-  - [Nerd Tree (view directory tree in vim editor, Press `F3`
-  - [You Complete Me (YCM) or Coc.Nvim (Auto completer)
-  - [IndentLine](a)[b]
-  - [python-repl]
+  - [Nerd Tree](https://github.com/preservim/nerdtree) (view directory tree in vim editor, Press `F3`
+  - [You Complete Me (YCM)](https://github.com/ycm-core/YouCompleteMe) or [Coc.Nvim (Auto completer)](https://github.com/neoclide/coc.nvim)
+  - [IndentLine](https://github.com/Yggdroot/indentLine)
+  - [python-repl](https://github.com/sillybun/vim-repl)
+
+# Install
 
 ## Clone Repo
 ```
@@ -21,7 +23,7 @@ rm -r -f vimrc
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-# vimrc
+## requirements
 vimrc configuration
 `important !` deactivate conda
 
@@ -52,7 +54,7 @@ In vim normal mode, run
 ```
 :PlugInstall
 ```
-# For Mac OS
+## For Mac OS
 If following error occurs `YouCompleteMe unavailable: requires Vim compiled with Python (3.6.0+) support`
 ``` 
 brew install macvim
