@@ -1,68 +1,19 @@
-
-
-" settings profile based on OS name
-
-"let os = 'fc'
-
-let os = 'ubuntu'
-
-
-
-if os == 'fc'
-
-	let use_ycm				= 1
-
-	let use_ycm_spellcheck	= 0
-
-elseif os == 'ubuntu'
-
-	let use_ycm				= 0
-
-	let use_ycm_spellcheck	= 1
-
-endif
-
-
-
-" directory path where the vimrc is installed
-
-let installed_dir = "~/vimrc4ubuntu"
-
-
-
-if use_ycm 
-
-	exec "source " . installed_dir . "/ycm.vim"
-
-endif
-
-
-
-" If you prefer the Omni-Completion tip window to close when a selection is
-
-" made, these lines close it on movement in insert mode or when leaving
-
-" insert mode
-
-"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-
-"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-"
-
+"""HOME END PGUP PGDN
+set mouse=a
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
+""""""""""""
 
 
 syntax on
-
-
-
 " set the colorscheme to ron. When using screen or tmux, colorscheme is changed to default. To prevent this, it should be written.
 
 "color default
 
 color ron
-
-
 
 " Open new split panes to right and bottom, which feels more natural than Vim’s default:
 
@@ -70,42 +21,29 @@ set splitbelow
 
 set splitright
 
-
-
 " show line numbers
 
 set nu
-
-
 
 " highlight search
 
 set hlsearch
 
-
-
 " search as characters are entered
 
 set incsearch
-
-
 
 " view matching brace
 
 set sm
 
-
-
 " scroll offset
 
 set scrolloff=2
 
-
-
 " highlight cursor line
 
 "set cursorline
-
 
 
 " set each buffer store up to 1000 lines(<1000), maximum buffer size
@@ -204,45 +142,7 @@ endfunction
 
 call InitBackupDir()
 
-
-
-if !use_ycm_spellcheck
-
-	" YouCompleteMe : syntax checker off
-
-	let g:ycm_show_diagnostics_ui = 0
-
-endif
-
-" YCM : for compiler option
-
-
-
-if os == 'ubuntu'
-
-	let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-
-else
-
-	let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-
-endif
-
-" YCM : no highlight
-
-" let g:ycm_enable_diagnostic_highlighting = 0
-
-" YCM : change warning symbol
-
-let g:ycm_warning_symbol = '??'
-
-
-
-" make backspace working properly
-
 set backspace=indent,eol,start
-
-
 
 " set tab length to 4 spaces
 
@@ -250,15 +150,8 @@ set tabstop=4
 
 set shiftwidth=4
 
-
-
-" automatic indent on bash
-
 filetype plugin indent on
 
-
-
-" use tab as spaces in python, tex
 
 autocmd FileType python,tex set expandtab
 
@@ -309,119 +202,6 @@ autocmd FileType matlab setl commentstring=%%s
 autocmd FileType sml setl commentstring=(*%s*)
 
 "autocmd FileType html,php setl commentstring=<!--%s-->
-
-
-
-" set foldcolumn automatically if there is at least one fold
-
-function HasFolds()
-
-	"Attempt to move between folds, checking line numbers to see if it worked.
-
-	"If it did, there are folds.
-
-
-
-	function! HasFoldsInner()
-
-		let origline=line('.')  
-
-		:norm zk
-
-		if origline==line('.')
-
-			:norm zj
-
-			if origline==line('.')
-
-				return 0
-
-			else
-
-				return 1
-
-			endif
-
-		else
-
-			return 1
-
-		endif
-
-		return 0
-
-	endfunction
-
-
-
-	" suppress all sounds when this function calls
-
-"	set belloff=all
-
-	set noeb vb t_vb=
-
-	let l:winview=winsaveview() "save window and cursor position
-
-	let foldsexist=HasFoldsInner()
-
-	if foldsexist
-
-		set foldcolumn=3
-
-	else
-
-		"Move to the end of the current fold and check again in case the
-
-		"cursor was on the sole fold in the file when we checked
-
-		if line('.')!=1
-
-			:norm [z
-
-			:norm k
-
-		else
-
-			:norm ]z
-
-			:norm j
-
-		endif
-
-		let foldsexist=HasFoldsInner()
-
-		if foldsexist
-
-			set foldcolumn=3
-
-		else
-
-			set foldcolumn=0
-
-		endif
-
-	end
-
-	call winrestview(l:winview) "restore window/cursor position
-
-
-
-	" enable bell sounds again
-
-"	set belloff=
-
-	set novb eb
-
-endfunction
-
-
-
-au CursorHold,BufWinEnter ?* call HasFolds()
-
-
-
-
-
 " restore the cursor position
 
 function! ResCur()
@@ -446,7 +226,6 @@ augroup resCur
 
 augroup END
 
-
 func! CmtOn()    "주석 on
 
 	exe "'<,'>norm i#"
@@ -458,7 +237,6 @@ vmap <c-c> <esc>:call CmtOn() <cr>
 nmap <c-c> <esc>v:call CmtOn() <cr>
 
 map f w
-
 
 
 
@@ -533,17 +311,21 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 map <F3> :NERDTreeToggle<cr>
 
-"YouCompleteMe
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
+""YouCompleteMe
+"Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
+"highlight Pmenu ctermfg=190 ctermbg=17 guifg=#AACCFF guibg=#222233
+"highlight PmenuSel ctermfg=17 ctermbg=190 guifg=#AACCFF guibg=#222233
+"Autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:python3_host_prog = '~/anaconda3/bin/python3'
+let g:coc_global_extensions = ['coc-python', 'coc-explorer', 'coc-json', 'coc-tsserver', 'coc-import-cost', 'coc-eslint', 'coc-snippets', 'coc-html', 'coc-css', 'coc-emmet', 'coc-pyright', 'coc-phpls', 'coc-angular', 'coc-git']
 highlight Pmenu ctermfg=190 ctermbg=17 guifg=#AACCFF guibg=#222233
 highlight PmenuSel ctermfg=17 ctermbg=190 guifg=#AACCFF guibg=#222233
+highlight CocUnusedHighlight ctermbg=NONE guibg=NONE
 
-"Autocomplete
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"let g:python3_host_prog = '~/anaconda3/bin/python3'
-"let g:coc_global_extensions = ['coc-python', 'coc-explorer', 'coc-json', 'coc-tsserver', 'coc-import-cost', 'coc-eslint', 'coc-snippets', 'coc-html', 'coc-css', 'coc-emmet', 'coc-pyright', 'coc-phpls', 'coc-angular', 'coc-git']
+
+Plug 'Yggdroot/indentLine'
 
 " Initialize plugin system
 call plug#end()
-
 
